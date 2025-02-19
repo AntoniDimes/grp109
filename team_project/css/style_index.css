@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-family: 'MinecraftiaRegular';
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+}
+
 .container {
   display: flex;
   height: 100vh;
@@ -39,9 +46,5 @@
   padding: 10px;
   border: 2px solid black;
   resize: none;
-}
-
-h1 {
-  text-align: center;
 }
 // (Duy)
