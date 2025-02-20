@@ -8,3 +8,19 @@ h1 {
         text-align: center;
       }
 // (Duy)
+/* Buu */
+h1 {
+  font-family: 'MinecraftiaRegular';
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+}
+
+h3, p {
+  text-align: center; 
+}
+
+#footer {
+  text-align: center;
+}
+/* Buu */
