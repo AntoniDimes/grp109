@@ -17,10 +17,13 @@ h1 {
   height: 100vh;
 }
 
+// (Buu)
 .margin {
   margin-bottom: -15px;
-}
-
+  text-align: center;
+  font-size: 20px;
+// (Buu)
+  
 .left, .right {
   padding: 20px;
   display: flex;
