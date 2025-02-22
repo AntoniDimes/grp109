@@ -73,3 +73,7 @@ function newSentence() { //to display a new sentenec
     userInput.value = ''; // Clear the input field 
     mistakeCounter.textContent = mistakes; // Resets the mistakes
 }
+
+newSentence(); // sentence is displayed 
+userInput.disabled = false; //enables the input field 
+userInput.addEventListener('input', checkInput); // Event listenre for user input 
