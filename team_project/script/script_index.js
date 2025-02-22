@@ -93,11 +93,13 @@ function checkInput() {
     
     // to count for mistakes
     mistakes = 0; // Reset mistakes to 0 whne test starts
+    typedCorrect = 0; // to reset the correct count to 0
     for (let i = 0; i < typedText.length; i++) { // Loop through the typed text
         if (typedText[i] !== sentence[i]) { // Compare each character with the sentence
             mistakes++; //when theres a mismatch, then increment the mistakes counter
         } else {
             typedCorrect++; // Increment the correct character count on match
+    }
     }
 
     // Update typedCorrect based on the input
