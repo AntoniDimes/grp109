@@ -107,5 +107,23 @@ function checkInput() {
     }
 }
 
+// Function to update the timer
+function updateTime() { 
+    const currentTime = new Date().getTime(); // Get the current time to calculate hwo much time has passed 
+    const timeTaken = Math.floor((currentTime - startTime) / 1000); // Calculate the time passed (in seconds)
+    const timeRemaining = timeLimit - timeTaken; // Calculate the remaining time
+  
+    if (timeRemaining >= 0) {
+      timeDisplayed.textContent = timeRemaining;  // Display the remaining time
+  } else { //else
+      timeDisplayed.textContent = 0; // Display 0 when time is up
+  }
+
+    if (timeRemaining <= 0) { //if the time remaining is less than or equal to 0
+        clearInterval(timer); // Clear the timer
+        userInput.disabled = true; // Disable input field when time is up
+        displayResults(); // Show results after time is up
+    }
+}
 
     
