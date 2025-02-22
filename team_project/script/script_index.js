@@ -18,4 +18,10 @@ let timeDisplayed = document.getElementById('time');//displays time
 let mistakeCounter = document.getElementById('mistakes');//
 let results = document.getElementById('result');//displays result
 
-
+// Function to show a new sentence
+function newSentence() { //to display a new sentenec
+    let randomIndex = Math.floor(Math.random() * sentences.length); // Get a random sentence
+    sentenceDisplayed.textContent = sentences[randomIndex]; // Display the random sentence
+    userInput.value = ''; // Clear the input field 
+    mistakeCounter.textContent = mistakes; // Resets the mistakes
+}
