@@ -95,11 +95,13 @@ function checkInput() {
     for (let i = 0; i < typedText.length; i++) { // Loop through the typed text
         if (typedText[i] !== sentence[i]) { // Compare each character with the sentence
             mistakes++; //when theres a mismatch, then increment the mistakes counter
-        }
+        } else {
+            typedCorrect++; // Increment the correct character count on match
     }
 
     // Update typedCorrect based on the input
     mistakeCounter.textContent = mistakes;// Display the number of mistakes
+    document.getElementById('typedCorrect').textContent = typedCorrect; // the correct number is updated in the html
 
     // Check if the user has completed typing the sentence
     if (typedText === sentence) { //if the typed text is equal to the sentence that was displayedd
