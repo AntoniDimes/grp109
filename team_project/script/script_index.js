@@ -5,6 +5,7 @@ let typedCorrect = 0; //score
 let mistakes = 0;
 let timer;
 let timeLimit = 30; // Set a time limit for the test (30 seconds)
+let isTestRunning = false; //
 
 
 // More sentences (Duy)
