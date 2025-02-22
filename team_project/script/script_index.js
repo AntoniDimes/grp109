@@ -77,3 +77,35 @@ function newSentence() { //to display a new sentenec
 newSentence(); // sentence is displayed 
 userInput.disabled = false; //enables the input field 
 userInput.addEventListener('input', checkInput); // Event listenre for user input 
+
+// Function to check the user input
+function checkInput() {
+    let typedText = userInput.value; // Get the text typed by the user
+    let sentence = sentenceDisplayed.textContent; // Get the current sentence that is displayed for user to type
+
+    // Start the timer if it hasn't started yet
+    if (!isTestRunning) { //if the test is NOT running
+        startTime = new Date().getTime(); //then start the timer 
+        isTestRunning = true; // Set the flag to indicate the test is running
+        timer = setInterval(updateTime, 1000); // Update timer every second (1000ms)
+    }
+    
+    // to count for mistakes
+    mistakes = 0; // Reset mistakes to 0 whne test starts
+    for (let i = 0; i < typedText.length; i++) { // Loop through the typed text
+        if (typedText[i] !== sentence[i]) { // Compare each character with the sentence
+            mistakes++; //when theres a mismatch, then increment the mistakes counter
+        }
+    }
+
+    // Update typedCorrect based on the input
+    mistakeCounter.textContent = mistakes;// Display the number of mistakes
+
+    // Check if the user has completed typing the sentence
+    if (typedText === sentence) { //if the typed text is equal to the sentence that was displayedd
+        newSentence(); // chnage the sentence to another one from the array
+    }
+}
+
+
+    
