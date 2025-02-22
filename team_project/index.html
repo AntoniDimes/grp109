@@ -10,21 +10,21 @@
   <body>
     <div class="container">
       <div class="left">
-        <h1>JustType</h1>
-        <!-- Add the sentence for the user here. -->
-      </div>
-      <div class="right">
-        <h3 class="margin">Instructions:</h3>
-        <p>The system give you a sentence. You type the sentence and we will calculate the time 
-        , show you your mistake, and show your score.</p>
-        <h3 class="margin">Score: </h3>
-        <!-- Add the score, time, mistakes, or any of things like that here -->
-        <p class = "score">Place holder</p>
-        <p class = "score">Place holder</p>
-        <p class = "score">Place holder</p>
-        <!-- Add the score, time, mistakes, or any of things like that here -->
-        <br>
-        <h3 class="margin">Link:</h3>
+       <h1>JustType</h1> <!--Title -->
+      <p id="sentence" class="sentence"></p>
+      <textarea id="user-input" class="input-field" placeholder="Type the above sentence here..." autofocus></textarea> <!--inside the input area-->
+      <div id="result" class="result"></div>
+    </div>
+
+    <div class="right">
+      <h3 class="margin">Instructions:</h3>
+      <p>The system presents you with a sentence. Type it out, and we will track your time and highlight any mistakes. <!--insturctions-->
+      </p>
+      <h3 class="margin">Time:</h3>
+      <p id="time">0</p>
+      <h3 class="margin">Mistakes:</h3>
+      <p id="mistakes">0</p>
+      <h3 class="margin">Link:</h3> <!--link to changes page-->
         <p><a href="https://antonidimes.github.io/grp109/team_project/change.html">Click here</a> to see the all of the work we done.</p>
       </div>
     </div>
