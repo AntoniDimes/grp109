@@ -15,6 +15,18 @@ h1 {
 .container {
   display: flex;
   height: 100vh;
+  justify-content: center;
+}
+
+.phrase {
+  font-size: 25px;
+  margin-top: 50px;
+}
+
+textarea {
+  margin: 25px;
+  height: auto;
+  width: 975px;
 }
 
 /* Buu */
@@ -58,14 +70,5 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-}
-.typing-area {
-  width: 90%;
-  height: 200px;
-  margin-top: 20px;
-  font-size: 16px;
-  padding: 10px;
-  border: 2px solid black;
-  resize: none;
 }
 /*(Duy)*/
