@@ -1,12 +1,10 @@
-
-//Gurkirat 
-let startTime = 0; //start rtime
-let typedCorrect = 0; //score
+// Gurkirat
+let startTime = 0; // start time
+let typedCorrect = 0; // score (maintained across sentences)
 let mistakes = 0;
 let timer;
 let timeLimit = 30; // Set a time limit for the test (30 seconds)
 let isTestRunning = false; //
-
 
 // More sentences (Duy)
 let sentences = [
@@ -60,30 +58,29 @@ let sentences = [
     "Typing without looking at the keyboard is a game changer"
 ];
 
-//DOM elements
+// DOM elements
 let sentenceDisplayed = document.getElementById('sentence'); //display sentence to type
 let userInput = document.getElementById('input');//user input
 let timeDisplayed = document.getElementById('time');//displays time
-let mistakeCounter = document.getElementById('mistakes');//
+let mistakeCounter = document.getElementById('mistakes');
 let results = document.getElementById('result');//displays result
 
 // Function to show a new sentence
-function newSentence() { //to display a new sentenec
+function newSentence() { //to display a new sentenece
     let randomIndex = Math.floor(Math.random() * sentences.length); // Get a random sentence
     sentenceDisplayed.textContent = sentences[randomIndex]; // Display the random sentence
     userInput.value = ''; // Clear the input field 
-    mistakeCounter.textContent = mistakes; // Resets the mistakes
 }
 
-newSentence(); // sentence is displayed 
+newSentence();  // sentence is displayed 
 userInput.disabled = false; //enables the input field 
-userInput.addEventListener('input', checkInput); // Event listenre for user input 
+userInput.addEventListener('input', checkInput); // Event listenre for user input
 
 // Function to check the user input
-function checkInput() {
+function checkInput() { 
     let typedText = userInput.value; // Get the text typed by the user
     let sentence = sentenceDisplayed.textContent; // Get the current sentence that is displayed for user to type
-
+    
     // Start the timer if it hasn't started yet
     if (!isTestRunning) { //if the test is NOT running
         startTime = new Date().getTime(); //then start the timer 
@@ -92,37 +89,40 @@ function checkInput() {
     }
     
     // to count for mistakes
-    mistakes = 0; // Reset mistakes to 0 whne test starts
-    typedCorrect = 0; // to reset the correct count to 0
-    for (let i = 0; i < typedText.length; i++) { // Loop through the typed text
+    mistakes = 0;
+    let currentScore = 0; // Track correct score for the current sentence (Duy)
+    for (let i = 0; i < typedText.length; i++) {  // Loop through the typed text
         if (typedText[i] !== sentence[i]) { // Compare each character with the sentence
             mistakes++; //when theres a mismatch, then increment the mistakes counter
         } else {
-            typedCorrect++; // Increment the correct character count on match
-    }
+            currentScore++; // Increment the correct character count on match
+        }
     }
 
     // Update typedCorrect based on the input
-    mistakeCounter.textContent = mistakes;// Display the number of mistakes
-    document.getElementById('typedCorrect').textContent = typedCorrect; // the correct number is updated in the html
-
+    mistakeCounter.textContent = mistakes; // Display the number of mistakes
+    document.getElementById('typedCorrect').textContent = typedCorrect + currentScore; // the correct number is updated in the html
+    
     // Check if the user has completed typing the sentence
-    if (typedText === sentence) { //if the typed text is equal to the sentence that was displayedd
+    if (typedText === sentence) {  //if the typed text is equal to the sentence that was displayedd
+        // Add correct characters of this sentence to the total score (Duy)
+        typedCorrect += currentScore; 
+        document.getElementById('typedCorrect').textContent = typedCorrect;
         newSentence(); // chnage the sentence to another one from the array
     }
 }
 
 // Function to update the timer
-function updateTime() { 
-    const currentTime = new Date().getTime(); // Get the current time to calculate hwo much time has passed 
+function updateTime() {
+    const currentTime = new Date().getTime();// Get the current time to calculate hwo much time has passed 
     const timeTaken = Math.floor((currentTime - startTime) / 1000); // Calculate the time passed (in seconds)
     const timeRemaining = timeLimit - timeTaken; // Calculate the remaining time
-  
+
     if (timeRemaining >= 0) {
-      timeDisplayed.textContent = timeRemaining;  // Display the remaining time
-  } else { //else
-      timeDisplayed.textContent = 0; // Display 0 when time is up
-  }
+        timeDisplayed.textContent = timeRemaining; // Display the remaining time
+    } else {
+        timeDisplayed.textContent = 0; // Display 0 when time is up
+    }
 
     if (timeRemaining <= 0) { //if the time remaining is less than or equal to 0
         clearInterval(timer); // Clear the timer
@@ -131,4 +131,19 @@ function updateTime() {
     }
 }
 
-    
+// Add a function to display the result (Duy)
+function displayResults() {
+  document.getElementById('result').textContent = `Test complete! Total correct: ${typedCorrect + getCurrentScore()}, Total mistakes: ${mistakes}`;}
+  
+// Add a function to help keep track of the current score to add up (Duy)
+function getCurrentScore() {
+    let typedText = userInput.value;
+    let sentence = sentenceDisplayed.textContent;
+    let currentScore = 0;
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === sentence[i]) {
+            currentScore++;
+        }
+    }
+    return currentScore;
+}
