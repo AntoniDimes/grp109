@@ -29,11 +29,19 @@ textarea {
   width: 975px;
 }
 
-/* Buu */
-textarea{
-  font-size: 25px;
+.bottom {
+  margin-top: auto; /* Pushes it to the bottom */
+  text-align: center;
+  height: 25%;
+  width: 100%;
+  background-image: url("https://antonidimes.github.io/grp109/team_project/image/pngtree-polygonal-banner-background-picture-image_972456.jpg");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
 }
 
+
+/* Buu */
 h1 {
   font-size: 50px;
 }
@@ -59,10 +67,6 @@ body {
   background-image: url("https://antonidimes.github.io/grp109/team_project/image/Pixelbackground.png");
 }
 
-.left {
-  width: 70%;
-}
-
 .right {
   width: 30%;
   background-color: #7AD7FB;
@@ -74,5 +78,13 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 100%;
+  width: 70%;
 }
 /*(Duy)*/
