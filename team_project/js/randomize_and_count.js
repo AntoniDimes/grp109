@@ -4,7 +4,10 @@ let typedCorrect = 0; // score (maintained across sentences)
 let mistakes = 0;
 let timer;
 let timeLimit = 30; // Set a time limit for the test (30 seconds)
-let isTestRunning = false; //
+let isTestRunning = false; 
+// Variables for name changing (Duy)
+const developers = ["Duy Anh Nguyen", "Gurkirat Kaur", "Buu Quach"];
+let index = 0;
 
 // More sentences (Duy)
 let sentences = [
@@ -147,3 +150,12 @@ function getCurrentScore() {
     }
     return currentScore;
 }
+
+// Function to change names (Duy)
+function cycleNames() {
+    document.getElementById("developer-name").textContent = developers[index];
+    index = (index + 1) % developers.length; // Loop back after last name
+}
+
+// Change name (Duy)
+setInterval(cycleNames, 2000);
