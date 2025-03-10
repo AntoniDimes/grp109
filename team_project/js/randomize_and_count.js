@@ -157,5 +157,21 @@ function cycleNames() {
     index = (index + 1) % developers.length; // Loop back after last name
 }
 
+// Add blinking effect (Duy)
+document.querySelectorAll("a").forEach(link => {
+    let hoverTimer;
+
+    link.addEventListener("mouseenter", () => {
+        hoverTimer = setTimeout(() => {
+            link.classList.add("delay-blink"); // Add blinking effect
+        }, 2000); // Wait for 2 seconds
+    });
+
+    link.addEventListener("mouseleave", () => {
+        clearTimeout(hoverTimer); // Stop the timer if mouse leaves
+        link.classList.remove("delay-blink"); // Remove blinking effect
+    });
+});
+
 // Change name (Duy)
 setInterval(cycleNames, 2000);
