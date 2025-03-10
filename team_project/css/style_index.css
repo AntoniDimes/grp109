@@ -30,16 +30,18 @@ textarea {
 }
 
 .bottom {
-  margin-top: auto; /* Pushes it to the bottom */
+  margin-top: auto;
   text-align: center;
   height: 25%;
   width: 100%;
-  background-image: url("https://antonidimes.github.io/grp109/team_project/image/pngtree-polygonal-banner-background-picture-image_972456.jpg");
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
+  background-color: #e4e5f3; 
+  border: 3pt solid black;
+  padding: 10px;
 }
 
+h6 {
+  font-size: 22px;
+}
 
 /* Buu */
 h1 {
@@ -51,6 +53,10 @@ h1 {
   text-align: center;
   font-size: 30px;
   padding: 15px;
+}
+
+h6 {
+  font-size: 22px;
 }
 
 .score {
