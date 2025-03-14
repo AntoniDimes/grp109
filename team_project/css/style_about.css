@@ -86,3 +86,12 @@ h2{
   flex-shrink: 0;
 }
 
+.prev {
+  left: 10px;
+  background-color: royalblue;
+}
+
+.next {
+  right: 10px;
+  background-color: rgb(65, 225, 97);
+}
