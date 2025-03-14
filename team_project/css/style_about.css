@@ -62,3 +62,27 @@ h2{
   font-size: 30px;
 }
 /*(Buu)*/
+
+
+/*(Gurkirat)*/
+.carousel {
+  position: relative;
+  width: 1045px; 
+  margin: auto;
+  overflow: hidden; 
+  border-radius: 8px; 
+}
+
+.carousel-images {
+  display: flex;
+ 
+  width: 100%; 
+}
+
+.carousel-images img {
+  width: 100%; 
+  max-height: 300px; 
+  object-fit: cover; 
+  flex-shrink: 0;
+}
+
