@@ -95,7 +95,7 @@ h2{
 }
 
 .carousel-images img {
-  width: 600%;
+ width: calc(100% / 6);
 }
 
 .prev, .next {
