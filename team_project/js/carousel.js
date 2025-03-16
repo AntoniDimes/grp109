@@ -7,9 +7,13 @@ const images = [ // Array of images (gurkirat)
   { src: "image/keyboards7.png", alt: "Image of a keyboard" }
 ];
 
-//(Buu)
+// (Buu)
 let currentIndex = 0;
 const carouselImages = document.querySelector('.carousel-images');
+
+// Create audio elements (Duy)
+const rewindSound = new Audio("https://antonidimes.github.io/grp109/team_project/sounds/old-radio-button-click-97549.mp3");
+const advanceSound = new Audio("https://antonidimes.github.io/grp109/team_project/sounds/minecraft_click.mp3");
 
 // Function to update the carousel position (Buu)
 function updateCarousel() {
@@ -27,21 +31,29 @@ function nextSlide() {
 // Function to go to the previous slide (Buu)
 function prevSlide() {
   currentIndex = (currentIndex - 1 + images.length) % images.length; 
+  updateCarousel();
 }
 
-// Auto-slide every 4 seconds (Buu)
+// Auto-slide every 3 seconds (Buu)
 function startAutoSlide() {
-  setInterval(nextSlide, 4000); 
+  setInterval(nextSlide, 3000); 
 }
 
 // Event listeners for buttons (Buu)
 document.querySelector('.prev').addEventListener('click', function() {
   prevSlide();
+  // Play the rewind sound (Duy)
+  rewindSound.play(); 
 });
+
 document.querySelector('.next').addEventListener('click', function() {
   nextSlide();
+  // Play the advanced sound (Duy)
+  advanceSound.play(); 
 });
 
 // Automatically start the carousel when the page loads (Buu)
 startAutoSlide();
 updateCarousel();
+
+
