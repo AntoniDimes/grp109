@@ -16,6 +16,10 @@
   flex-direction: column;
 }
 
+iframe {
+  border: none; 
+  overflow: hidden; 
+}
 
 a {
   color: #004a99;; 
